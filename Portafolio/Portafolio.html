@@ -1,0 +1,122 @@
+<!-- Portafolio Web - HTML, CSS y JS -->
+<!-- Guarda este código como index.html y reemplaza las URLs de tus páginas -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio | 4 Páginas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; }
+    header { text-align: center; padding: 2rem 1rem; }
+    header h1 { font-size: 2rem; font-weight: 800; }
+    header p { color: #6b7280; margin-top: 0.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 1rem; }
+    .card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: #4b5563; }
+    .buttons { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .btn { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 9999px; padding: 0.4rem 0.8rem; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .btn:hover { background: #e5e7eb; }
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; visibility: hidden; opacity: 0; transition: opacity 0.3s; }
+    .modal.active { visibility: visible; opacity: 1; }
+    .modal-content { background: white; width: 90%; max-width: 1000px; height: 80vh; border-radius: 1rem; overflow: hidden; display: flex; flex-direction: column; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #e5e7eb; }
+    .modal-header h2 { font-size: 1rem; font-weight: 600; }
+    .modal iframe { flex: 1; width: 100%; border: none; }
+    .close-btn { background: #ef4444; color: white; border: none; border-radius: 0.5rem; padding: 0.4rem 0.8rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portafolio</h1>
+    <p>Explora mis proyectos. Haz clic en Ver para previsualizar o en Abrir para ir al sitio.</p>
+  </header>
+  <main class="container">
+    <div class="grid" id="projects"></div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Título</h2>
+        <button class="close-btn" id="closeModal">Cerrar</button>
+      </div>
+      <iframe id="modalFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <script>
+    const projects = [
+      {
+        title: 'Proyecto 1 - Factura',
+        description: 'Factura creada en base a semejanza y funcionalidad de una página ya creada. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Factura/',
+        thumbnail: 'factura 4\logo.png'
+      },
+      {
+        title: 'Proyecto 2 - Tienda',
+        description: 'Tienda web diseñada para trabajar creando catalogos. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Trabajos/',
+        thumbnail: 'https://livedemo00.template-help.com/prestashop_49456/modules/homeslider/images/d04359b2617742922260a8ba58d0019fb9ebd9c9_slide_1.png'
+      },
+      {
+        title: 'Proyecto 3 - Hotel',
+        description: 'Pagina creada para simular el diseño base para una página oficial de un hotel. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Hotel/',
+        thumbnail: 'Hotel-main\Hotel-main\pb-mazatlan-gallery-13-609ea20028d8f.jpg'
+      },
+      {
+        title: 'Proyecto 4 - OVA Física',
+        description: 'Objeto Virtual de Aprendizaje creado para enseñar sobre física básica. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Ova/',
+        thumbnail: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fes%2Ffotos%2Fphysics&psig=AOvVaw2WKjZIGySSEtiTfO8ZC0Rq&ust=1762657173329000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJjgounH4ZADFQAAAAAdAAAAABAE'
+      }
+    ];
+
+    const container = document.getElementById('projects');
+    const modal = document.getElementById('modal');
+    const modalFrame = document.getElementById('modalFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModal = document.getElementById('closeModal');
+
+    projects.forEach((p) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${p.thumbnail}" alt="${p.title}">
+        <div class="card-content">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <div class="buttons">
+            <button class="btn view-btn">Ver</button>
+            <a href="${p.url}" target="_blank" class="btn">Abrir</a>
+          </div>
+        </div>
+      `;
+      card.querySelector('.view-btn').addEventListener('click', () => {
+        modal.classList.add('active');
+        modalFrame.src = p.url;
+        modalTitle.textContent = p.title;
+      });
+      container.appendChild(card);
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalFrame.src = '';
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalFrame.src = '';
+      }
+    });
+  </script>
+</body>
+</html>

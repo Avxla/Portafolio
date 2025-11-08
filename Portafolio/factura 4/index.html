@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+</head>
+
+<body>
+    <div class="pag">
+        <header class="header">
+            <div class="COMPANY">
+                <div class="foto">
+               <img src="logo.png">
+               </div>
+               <div class="texto">
+                <h1>COMPANY</h1>
+                <p>COMPANY TAGLINE HERE</p>
+                </div>
+            </div>
+            <div class="INVOICE">
+                <h1>INVOICE</h1>
+                <div class="invoice">
+                <div class="May">
+                <P><strong>Invoice Number:</strong></P>
+                <P><strong>Account:</strong></P>
+                <P><strong>Invoice Date:</strong></P>
+                </div>
+                <div class="Min">
+                <p>P123456</p>
+                <p>1234 5678 9101</p>
+                <p>April 05, 2020</p>
+                </div>
+                </div>
+            </div>
+        </header>
+        <section class="Datos">
+            <div class="informacion">
+                <h1>INVOICE TO:</h1>
+                <h3><strong>Jhone Doe.</strong></h3>
+                <p>Managring Director.Company Idt.</p>
+                <p>Phone: +123 4567 8910</p>
+                <p>Email:example@mail.com</p>
+            </div>
+            <div class="payment">
+                <h3>Payment Method</h3>
+                <p><strong>Account No:</strong>1234 5678 910</p>
+                <p><strong>Account Name:</strong>Jone Doe.</p>
+                <p><strong>Branch Name:</strong>XYZ</p>
+            </div>
+        </section>
+        <div class="margen">
+        <section class="Tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>ITEM DESCRIPTION</th>
+                        <th>PRICE</th>
+                        <th>QTY.</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Jan 10,2020</th>
+                        <th>Businesscard Design</th>
+                        <th>$455</th>
+                        <th>2</th>
+                        <th>$600</th>
+                    </tr>
+                    <tr>
+                        <th>Jan 10,2020</th>
+                        <th>Fruit Flayer Design</th>
+                        <th>$455</th>
+                        <th>1</th>
+                        <th>$450.00</th>
+                    </tr>
+                    <tr>
+                        <th>Jan 10,2020</th>
+                        <th>Application Interface Design</th>
+                        <th>$300</th>
+                        <th>1</th>
+                        <th>$300.00</th>
+                    </tr>
+                    <tr>
+                        <th>Jan 9,2020</th>
+                        <th>Theme Development</th>
+                        <th>$150</th>
+                        <th>3</th>
+                        <th>$450.00</th>
+                    </tr>
+                    <tr>
+                        <th>Jan 9,2020</th>
+                        <th>Full Branding Design</th>
+                        <th>$150</th>
+                        <th>1</th>
+                        <th>$150.00</th>
+                    </tr>
+                    <tr>
+                        <th>Jan 8,2020</th>
+                        <th>Creative Logo Design</th>
+                        <th>$200</th>
+                        <th>1</th>
+                        <th>$200.00</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        </div>
+        <div class="div">
+        <div class="sumas">
+            <div class="Izquierda">
+                <p>Subtotal:</p>
+                <p>Discount:</p>
+                <p>Tax (10%):</p>
+            </div>
+            <div class="Derecha">
+                <p><strong>$3150.00</strong></p>
+                <p><strong>$00.00</strong></p>
+                <p><strong>$315.00</strong></p>
+            </div>
+        </div>
+        </div>
+        <div class="Total">
+            <div class="Izquierda">
+                <h4>Total</h4>
+            </div>
+            <div class="Derecha">
+                <h4>$3465.00</h4>
+            </div>
+        </div>
+        
+        <div class="Pie">
+            <div class="Izquierda">
+                <h3><strong>Terms & Conditions:</strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id quibusdam fugit ut quidem placeat dolorum, expedita sit necessitatibus, tempora optio repellendus eum repudiandae ipsum labore laudantium blanditiis esse. Maiores, natus.
+                </p>
+            </div>
+            <div class="Derecha">
+                <img src="firma.jpg" alt="firma">
+                <h4>Your Name & Signature</h4>
+                <h4>Account Manager</h4>
+            </div>
+        </div>
+        <div class="marco-bajo">
+    </div>
+
+    </div>
+    
+</body>
+<style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+    .foto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.pag {
+    width: 800px;
+    margin: 0px auto;
+    border: 0px solid #ccc;
+    background: white;
+    padding: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.pag img {
+    width: 45px;
+    height: 50px;
+    padding-bottom: 10px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-image: url(Encabezado.jpg);
+    padding: 50px ;
+    align-items: center;
+}
+.COMPANY h1{
+    color: white;
+    font-size: 25px;
+
+}
+.COMPANY p {
+    font-size: 30%;
+    text-align: left;
+    margin-left: 0px;
+    color: white;
+    letter-spacing: 2.5px;
+}
+.COMPANY {
+    display: flex;
+    padding: 0 0 0 10px;
+}
+.INVOICE h1 {
+color: rgb(238, 175, 59);
+margin-top: 20px;
+height: 50px;
+padding-left: 80px;
+font-size: 40px;
+}
+.INVOICE p {
+color: white;
+font-size: 60%;
+padding-bottom: 5px ;
+padding-left: 60px;
+
+
+}
+.Min {
+text-align: end;
+}
+.Datos {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px 0px 0px;
+}
+.informacion h1 {
+    color: rgb(238, 175, 59);
+    font-size: 80%;
+    margin-left: 40px;
+    height: auto;
+}
+.informacion h3 {
+    font-size: 110%;
+    margin-left: 38px;
+}
+.informacion p {
+    font-size: 70%;
+    margin-left: 38px;
+}
+.payment h3 {
+    font-size: 90%;
+    margin-right: 40px;
+    color: rgb(238, 172, 51);
+    
+}
+.invoice {
+    display: flex;
+    justify-content: space-between;
+
+}
+.payment p {
+    font-size: 70%;
+    margin-right: 38px;
+}
+.Tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.margen{
+    padding: 20px 30px 10px 30px;
+}
+.Tabla thead {
+    color: white;
+    background: orange;
+}
+.div{
+    padding: 20px 30px 10px 30px;
+}
+.Tabla th {
+    padding: 10px;
+    border: 4px solid white;
+    text-align: left;
+}
+.Tabla td {
+    padding: 10px;
+    border: 10px solid white;
+    text-align: left;
+}
+.Tabla tr:nth-child(even) {
+    background-color: #f3efef7a;
+}
+.sumas {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 31px 10px 21px;
+}
+.sumas p {
+    margin-bottom: 5px;
+}
+.Total {
+    display: flex;
+    justify-content: space-between;
+    background: orange;
+    color: white;
+    padding: 15px;
+    margin: 35px;
+}
+.Pie {
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
+    padding: 0px 31px 35px 35px;
+}
+.Pie p {
+    font-size: 9px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 60%;
+}
+.Pie h3 {
+    font-size: 17px;
+    padding: 20px 0px 0px 0px;
+}
+.Pie img {
+    width: 180px;
+    height: auto;
+    padding: 0px 0px 0px 9px;
+}
+.Pie h4 {
+    font-size: 11px;
+    padding: 0px 0px 0px 28px;
+    text-align: center;
+}
+.marco-bajo {
+    position: absolute;
+    justify-content: space-between;
+    background-image:url(abajo.jpg) ;
+        width: 800px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+ }
+
+/* Ajuste para tablets (pantallas hasta 1024px) */
+@media (max-width: 700px) {
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .INVOICE h1 {
+        padding-left: 0;
+        font-size: 32px;
+    }
+    .invoice {
+        flex-direction: column;
+        text-align: center;
+            position: relative;
+    left: -15px;
+    }
+    .Datos {
+        flex-direction: row;
+        gap: 20px;
+        
+    }
+}
+
+@media (max-width: 790px){
+    .header {
+        background-image: none;
+        background-color: black;
+    }
+    .invoice {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    width: 100px;
+
+    }
+.INVOICE p {
+color: white;
+font-size: 60%;
+padding-bottom: 5px ;
+padding-left: 0px;
+}
+.marco-bajo{
+    background-image: none;
+    background-color: black;
+}
+.May {
+    justify-content: left;
+    text-align: left;
+    width: 80px;
+}
+.Min {
+        justify-content: right;
+    text-align: right;
+    width: 80px;
+}
+}
+/* RESPONSIVE de 585px a 300px */
+@media screen and (max-width: 585px) and (min-width: 300px) {
+
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    .COMPANY {
+        flex-direction: column;
+        align-items: center;
+    }
+    .COMPANY h1 {
+        font-size: 20px;
+    }
+    .COMPANY p {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .INVOICE h1 {
+        font-size: 22px;
+        padding-left: 0;
+        margin: 10px 0;
+    }
+    .invoice {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+    .invoice p {
+        font-size: 12px;
+    }
+
+    .Datos {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+    }
+    .informacion h1 {
+        font-size: 14px;
+        margin-left: 0;
+        text-align: center;
+    }
+    .informacion h3 {
+        font-size: 13px;
+        margin-left: 0;
+        text-align: center;
+    }
+    .informacion p {
+        font-size: 11px;
+        margin-left: 0;
+        text-align: center;
+    }
+    .payment h3 {
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .Tabla table {
+        font-size: 11px;
+    }
+    .Tabla th, .Tabla td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .sumas, .Total {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+    .Total {
+        margin: 15px 0;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .Pie {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    .Pie p {
+        font-size: 11px;
+    }
+    .Pie h4 {
+        font-size: 12px;
+    }
+
+}
+
+</style>
+
+</html>

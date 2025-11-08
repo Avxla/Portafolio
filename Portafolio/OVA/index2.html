@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OVA - Estados de la Materia</title>
+  <style>
+    :root{
+      --accent:#2b6cb0;
+      --bg:#0f1721;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.03)
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin:0;
+      background:linear-gradient(180deg,#071025 0%, #081526 100%);
+      color:#e6eef8;
+      line-height:1.45
+    }
+    .container{max-width:1000px;margin:28px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#0ea5a6);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 20px rgba(2,6,23,.6)}
+    .logo h1{font-size:20px;margin:0}
+    h1.title{font-size:1.6rem;margin:0}
+    p.lead{color:var(--muted);margin-top:6px}
+    nav.topnav{
+      display:flex;position: sticky;top: 0;background: var(--bg);
+      padding: 12px 0;border-radius: 12px;box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      overflow-x: auto;gap:8px;margin-top:18px;flex-wrap:wrap
+    }
+    nav.topnav a{
+      background:var(--glass);padding:8px 12px;border-radius:8px;color:inherit;
+      text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,0.03)
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+      margin-top:16px
+    }
+    h2{margin:0 0 8px 0}
+    .small{font-size:.95rem;color:var(--muted)}
+    ul,ol{margin:8px 0 0 18px}
+    .example{
+      background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;
+      margin-top:10px;border:1px dashed rgba(255,255,255,0.03)
+    }
+    footer{margin-top:20px;color:var(--muted);font-size:.9rem;text-align:center}
+    table {border-collapse: collapse;width: 90%;margin: 12px auto;background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
+    th, td {border: 1px solid #999;padding: 8px 12px;text-align: center;}
+    th {background: #2b6cb0;color: #ffffff;}
+    td {color:rgba(36, 36, 36, 0.85);}
+    tr:nth-child(even) {background: #f0f8ff;}
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .state-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:12px;border-radius:10px;
+    }
+    .badge {display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700}
+    @media (max-width:520px){
+      table {width:100%}
+      .container{padding:16px}
+      h1.title{font-size:1.2rem}
+    }
+
+    /* ======= MEDIA QUERIES ======= */
+    @media (max-width: 768px){
+      .container{padding:18px}
+      h1.title{font-size:1.3rem}
+      nav.topnav{justify-content:center}
+    }
+    @media (max-width: 520px){
+      .container{padding:14px}
+      h1.title{font-size:1.1rem;text-align:center}
+      p.lead{text-align:center}
+      nav.topnav a{padding:6px 8px;font-size:0.8rem}
+      footer{font-size:0.75rem}
+    }
+         @media (max-width: 768px) {
+      .container {
+        padding: 16px;
+      }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .logo {
+        margin-bottom: 10px;
+      }
+      h1.title {
+        font-size: 1.3rem;
+      }
+      nav.topnav {
+        justify-content: center;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+      table {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.9rem;
+      }
+      h1.title {
+        font-size: 1.1rem;
+      }
+      nav.topnav a {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+      }
+      table {
+        font-size: 0.8rem;
+      }
+      th, td {
+        padding: 6px;
+      }
+      footer {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12h18M12 3v18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+         <a href="a.html">Ir a Unidades de Medida</a>
+        <h1 class="title">OVA — Estados de la Materia</h1>
+        <p class="lead">Sólido · Líquido · Gaseoso · Plasma · Condensado de Bose-Einstein</p>
+      </div>
+    </header>
+
+    <nav class="topnav" aria-label="navegación OVA">
+      <a href="#intro">Introducción</a>
+      <a href="#estados">Estados</a>
+      <a href="#cambios">Cambios de estado</a>
+      <a href="#tabla">Comparativa</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a href="#actividades">Actividades</a>
+    </nav>
+
+    <main>
+      <section id="intro" class="card">
+        <h2>Introducción</h2>
+        <p>Los estados de la materia describen las formas en que las partículas que componen una sustancia (átomos, moléculas, iones) pueden organizarse y comportarse. Las diferencias entre estados se deben principalmente a la energía térmica (temperatura) y a las fuerzas de interacción entre partículas.</p>
+      </section>
+
+      <section id="estados" class="card">
+        <h2>Estados principales</h2>
+        <div class="grid">
+          <article class="state-card" id="solido">
+            <h3><span class="badge" style="background:rgba(255,255,255,0.06)">Sólido</span></h3>
+            <p><strong>Definición:</strong> Estado con forma y volumen definidos; las partículas están ordenadas y vibran en posiciones fijas.</p>
+            <p class="small"><strong>Propiedades:</strong> alta densidad, rígido, compresibilidad baja, estructura cristalina o amorfa.</p>
+            <p class="small"><strong>Ejemplos:</strong> hielo, hierro, cuarzo.</p>
+          </article>
+
+          <article class="state-card" id="liquido">
+            <h3><span class="badge" style="background:rgba(255,255,255,0.06)">Líquido</span></h3>
+            <p><strong>Definición:</strong> Estado con volumen definido pero forma variable; las partículas se mueven y deslizan manteniendo cohesión.</p>
+            <p class="small"><strong>Propiedades:</strong> fluye, superficie libre, incomprensible en condiciones normales, toma la forma del recipiente.</p>
+            <p class="small"><strong>Ejemplos:</strong> agua, aceite, mercurio.</p>
+          </article>
+
+          <article class="state-card" id="gas">
+            <h3><span class="badge" style="background:rgba(255,255,255,0.06)">Gaseoso</span></h3>
+            <p><strong>Definición:</strong> Estado sin forma ni volumen definidos; las partículas se mueven libremente y ocupan todo el volumen disponible.</p>
+            <p class="small"><strong>Propiedades:</strong> alta compresibilidad, baja densidad, difusión rápida.</p>
+            <p class="small"><strong>Ejemplos:</strong> aire, vapor de agua, dióxido de carbono.</p>
+          </article>
+
+          <article class="state-card" id="plasma">
+            <h3><span class="badge" style="background:rgba(255,255,255,0.06)">Plasma</span></h3>
+            <p><strong>Definición:</strong> Gas ionizado con electrones libres y iones; responde fuertemente a campos eléctricos y magnéticos.</p>
+            <p class="small"><strong>Propiedades:</strong> conductividad eléctrica alta, emisión de luz, presente a altas temperaturas.</p>
+            <p class="small"><strong>Ejemplos:</strong> plasma solar, auroras, lámparas fluorescentes.</p>
+          </article>
+
+          <article class="state-card" id="bec">
+            <h3><span class="badge" style="background:rgba(255,255,255,0.06)">Condensado de Bose-Einstein</span></h3>
+            <p><strong>Definición:</strong> Estado cuántico de la materia a temperaturas cercanas al cero absoluto donde muchas partículas ocupan el mismo estado cuántico.</p>
+            <p class="small"><strong>Propiedades:</strong> comportamiento colectivo cuántico, superfluidez en algunos casos.</p>
+            <p class="small"><strong>Ejemplos:</strong> condensados creados en laboratorios con átomos ultrafríos (rubidio, sodio).</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="cambios" class="card">
+        <h2>Cambios de estado</h2>
+        <p>Los cambios de estado son transformaciones entre estados provocadas por variaciones de temperatura o presión. A continuación se muestran los procesos más comunes:</p>
+        <ul>
+          <li><strong>Fusión:</strong> sólido → líquido (p. ej. hielo a agua).</li>
+          <li><strong>Solidificación:</strong> líquido → sólido (p. ej. agua a hielo).</li>
+          <li><strong>Vaporización:</strong> líquido → gas (evaporación o ebullición).</li>
+          <li><strong>Condensación:</strong> gas → líquido.</li>
+          <li><strong>Sublimación:</strong> sólido → gas (p. ej. hielo seco).</li>
+          <li><strong>Deposición:</strong> gas → sólido (p. ej. formación de escarcha).</li>
+          <li><strong>Ionización:</strong> gas → plasma (aumenta energía → electrones libres).</li>
+        </ul>
+
+        <div class="example">
+          <strong>Ejemplo:</strong> Al calentar agua a 100 °C (a 1 atm) ocurre la ebullición: líquido → gas (vapor). Al enfriar el vapor resulta en condensación.
+        </div>
+      </section>
+
+      <section id="tabla" class="card">
+        <h2>Comparativa rápida</h2>
+        <table>
+          <caption>Resumen de propiedades por estado</caption>
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Forma</th>
+              <th>Volumen</th>
+              <th>Densidad</th>
+              <th>Movimiento de partículas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sólido</td>
+              <td>Definida</td>
+              <td>Definido</td>
+              <td>Alta</td>
+              <td>Vibración alrededor de posiciones fijas</td>
+            </tr>
+            <tr>
+              <td>Líquido</td>
+              <td>Variable</td>
+              <td>Definido</td>
+              <td>Media</td>
+              <td>Movimiento deslizante</td>
+            </tr>
+            <tr>
+              <td>Gas</td>
+              <td>No definida</td>
+              <td>No definido (ocupa el recipiente)</td>
+              <td>Baja</td>
+              <td>Movimiento libre y aleatorio</td>
+            </tr>
+            <tr>
+              <td>Plasma</td>
+              <td>No definida</td>
+              <td>No definido</td>
+              <td>Variable (baja a media)</td>
+              <td>Partículas ionizadas, interacción con campos</td>
+            </tr>
+            <tr>
+              <td>BEC</td>
+              <td>Macroscópico cuántico</td>
+              <td>Definido por el contenedor</td>
+              <td>Extremadamente baja</td>
+              <td>Comportamiento colectivo cuántico</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ejemplos" class="card">
+        <h2>Ejemplos cotidianos y aplicaciones</h2>
+        <ul>
+          <li><strong>Sólidos:</strong> materiales de construcción, componentes electrónicos (estado cristalino).</li>
+          <li><strong>Líquidos:</strong> procesos químicos, refrigerantes, fluidos biológicos.</li>
+          <li><strong>Gases:</strong> atmósfera, combustibles gaseosos, procesos industriales.</li>
+          <li><strong>Plasma:</strong> fusión nuclear experimental, pantallas de plasma, astrofísica.</li>
+          <li><strong>BEC:</strong> investigación en física cuántica, sensores extremadamente sensibles.</li>
+        </ul>
+      </section>
+
+      <section id="actividades" class="card">
+        <h2>Actividades</h2>
+        <ol>
+          <li>Explica por qué la densidad suele ser mayor en sólidos que en gases.</li>
+          <li>Da 3 ejemplos de cambios de estado que observas en tu vida diaria.</li>
+          <li>¿Qué condiciones (temperatura/energía) favorecen la formación de plasma?</li>
+          <li>Investiga un uso tecnológico del plasma o del condensado de Bose-Einstein y escribe un párrafo breve.</li>
+          <li>Dibuja (en papel) el diagrama de fases simplificado (presión vs temperatura) para el agua e identifica los puntos de fusión y ebullición a 1 atm.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>OVA – Estados de la Materia | Física Básica</p>
+    </footer>
+  </div>
+</body>
+</html>
