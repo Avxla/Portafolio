@@ -1,327 +1,129 @@
+<!-- Portafolio Web - HTML, CSS y JS -->
+<!-- Guarda este código como index.html y reemplaza las URLs de tus páginas -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema CRUD</title>
-    <style>
-        /* Estilos generales */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        /* Estilos para el formulario */
-        .form-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-        
-        .form-title {
-            color: #3498db;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .input-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .input-field {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .input-field label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: #555;
-        }
-        
-        .input-field input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .input-field input:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-        }
-        
-        .btn-guardar {
-            background-color: #2ecc71;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .btn-guardar:hover {
-            background-color: #27ae60;
-        }
-        
-        /* Estilos para la tabla */
-        .table-section {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow-x: auto;
-        }
-        
-        .table-title {
-            color: #3498db;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 600px;
-        }
-        
-        thead {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        th {
-            font-weight: 600;
-        }
-        
-        tbody tr:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .btn-accion {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            margin-right: 10px;
-            transition: transform 0.2s ease;
-        }
-        
-        .btn-accion:hover {
-            transform: scale(1.2);
-        }
-        
-        .btn-editar {
-            color: #f39c12;
-        }
-        
-        .btn-eliminar {
-            color: #e74c3c;
-        }
-        
-        /* Mensaje cuando no hay datos */
-        .no-data {
-            text-align: center;
-            padding: 30px;
-            color: #7f8c8d;
-            font-style: italic;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .input-group {
-                flex-direction: column;
-            }
-            
-            .input-field {
-                min-width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; }
+    header { text-align: center; padding: 2rem 1rem; }
+    header h1 { font-size: 2rem; font-weight: 800; }
+    header p { color: #6b7280; margin-top: 0.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.2s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 1rem; }
+    .card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: #4b5563; }
+    .buttons { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .btn { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 9999px; padding: 0.4rem 0.8rem; font-size: 0.85rem; cursor: pointer; transition: background 0.2s; }
+    .btn:hover { background: #e5e7eb; }
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; visibility: hidden; opacity: 0; transition: opacity 0.3s; }
+    .modal.active { visibility: visible; opacity: 1; }
+    .modal-content { background: white; width: 90%; max-width: 1000px; height: 80vh; border-radius: 1rem; overflow: hidden; display: flex; flex-direction: column; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #e5e7eb; }
+    .modal-header h2 { font-size: 1rem; font-weight: 600; }
+    .modal iframe { flex: 1; width: 100%; border: none; }
+    .close-btn { background: #ef4444; color: white; border: none; border-radius: 0.5rem; padding: 0.4rem 0.8rem; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Sistema de Gestión de Contactos</h1>
-        
-        <div class="form-section">
-            <h2 class="form-title">Agregar Nuevo Contacto</h2>
-            <div class="input-group">
-                <div class="input-field">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Ingrese el nombre">
-                </div>
-                <div class="input-field">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" placeholder="Ingrese el apellido">
-                </div>
-                <div class="input-field">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" id="telefono" placeholder="Ingrese el teléfono">
-                </div>
-            </div>
-            <button id="btnGuardar" class="btn-guardar">
-                <span>💾</span> Guardar
-            </button>
-        </div>
-        
-        <div class="table-section">
-            <h2 class="table-title">Lista de Contactos</h2>
-            <table>
-                <thead>
-                   <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>Opciones</th>
-                   </tr> 
-                </thead>
-                <tbody id="datos">
-                    <!-- Los datos se insertarán aquí dinámicamente -->
-                </tbody>
-            </table>
-        </div>
+  <header>
+    <h1>Portafolio</h1>
+    <p>Explora mis proyectos. Haz clic en Ver para previsualizar o en Abrir para ir al sitio.</p>
+  </header>
+  <main class="container">
+    <div class="grid" id="projects"></div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Título</h2>
+        <button class="close-btn" id="closeModal">Cerrar</button>
+      </div>
+      <iframe id="modalFrame" src=""></iframe>
     </div>
-    
-    <script>
-        let inpNombre = document.getElementById("nombre")
-        let inpApellido = document.getElementById("apellido")
-        let inpTelefono = document.getElementById("telefono")
-        let registro = []
-        
-        document.getElementById("btnGuardar").addEventListener("click", ()=>{
-            if( inpNombre.value==""){
-                alert("Se requiere el nombre")
-            }else if(inpApellido.value==""){
-                alert("Se requiere el apellido")
-            }else if(inpTelefono.value==""){
-                alert("Se requiere el telefono")
-            }else{
-                let data = {
-                    id:Date.now(),
-                    nombre:inpNombre.value,
-                    apellido:inpApellido.value,
-                    telefono:inpTelefono.value
-                }
+  </div>
 
-                registro.push(data)
-                console.log(registro);
-                pintar()
-                limpiar()
-            }
-        })
+  <script>
+    const projects = [
+      {
+        title: 'Proyecto 1 - Factura',
+        description: 'Factura creada en base a semejanza y funcionalidad de una página ya creada. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Factura/',
+        thumbnail: 'https://e-recibos.com/wp-content/uploads/2023/02/factura-electronica.jpg'
+      },
+      {
+        title: 'Proyecto 2 - Tienda',
+        description: 'Tienda web diseñada para trabajar creando catalogos. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Trabajos/',
+        thumbnail: 'https://tse2.mm.bing.net/th/id/OIP.46RQ3K95zdy3PnmpyKB1ygHaEb?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3'
+      },
+      {
+        title: 'Proyecto 3 - Hotel',
+        description: 'Pagina creada para simular el diseño base para una página oficial de un hotel. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Hotel/',
+        thumbnail: 'https://cf.bstatic.com/xdata/images/hotel/max500/26251253.jpg?k=221fb2e88fcb724584c5e6ac0b59c0984d590e1dc9e26d6097a8a1235af4a956&o='
+      },
+      {
+        title: 'Proyecto 4 - OVA Física',
+        description: 'Objeto Virtual de Aprendizaje creado para enseñar sobre física básica. Tecnologías: HTML / CSS.',
+        url: 'https://avxla.github.io/Ova/',
+        thumbnail: 'https://tse1.explicit.bing.net/th/id/OIP.qpItJZL5IiawVv6aF08CSwHaE7?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3'
+      },
+      {
+        title: 'Proyecto 5 - CRUD',
+        description: ': JS / HTML / CSS.',
+        url: 'https://avxla.github.io/Formulario/',
+        thumbnail: 'https://tse1.explicit.bing.net/th/id/OIP.qpItJZL5IiawVv6aF08CSwHaE7?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3'
+      }
+    ];
 
-        function limpiar(){
-            inpNombre.value = ""
-            inpApellido.value = ""
-            inpTelefono.value = ""
-        }
+    const container = document.getElementById('projects');
+    const modal = document.getElementById('modal');
+    const modalFrame = document.getElementById('modalFrame');
+    const modalTitle = document.getElementById('modalTitle');
+    const closeModal = document.getElementById('closeModal');
 
-        function pintar(){
-            let datosBody = document.getElementById("datos")
-            datosBody.textContent = ""
-            
-            if (registro.length === 0) {
-                let tr = document.createElement("tr")
-                let td = document.createElement("td")
-                td.colSpan = 5
-                td.className = "no-data"
-                td.textContent = "No hay contactos registrados. Agregue uno nuevo."
-                tr.appendChild(td)
-                datosBody.appendChild(tr)
-                return
-            }
-            
-            registro.forEach((item, indice)=>{
-                let tr = document.createElement("tr")
-                let tdId = document.createElement("td")
-                let tdNombre = document.createElement("td")
-                let tdApellido = document.createElement("td")
-                let tdTelefono = document.createElement("td")
-                let tdOpciones = document.createElement("td")
-                
-                tdId.textContent = item.id
-                tdNombre.textContent = item.nombre
-                tdApellido.textContent = item.apellido
-                tdTelefono.textContent = item.telefono
-                
-                let btnEditar = document.createElement("button")
-                btnEditar.textContent ="✏️"
-                btnEditar.className = "btn-accion btn-editar"
-                btnEditar.title = "Editar contacto"
-                btnEditar.addEventListener("click",()=>{
-                    inpNombre.value = item.nombre
-                    inpApellido.value = item.apellido
-                    inpTelefono.value = item.telefono
-                    registro.splice(indice, 1)
-                    pintar()
-                })
-                
-                let btnEliminar = document.createElement("button")
-                btnEliminar.textContent ="🗑️"
-                btnEliminar.className = "btn-accion btn-eliminar"
-                btnEliminar.title = "Eliminar contacto"
-                btnEliminar.addEventListener("click",()=>{
-                    if (confirm("¿Está seguro de que desea eliminar este contacto?")) {
-                        registro.splice(indice, 1)
-                        pintar()
-                    }
-                })
-                
-                tdOpciones.appendChild(btnEditar)
-                tdOpciones.appendChild(btnEliminar)
-                tr.appendChild(tdId)
-                tr.appendChild(tdNombre)
-                tr.appendChild(tdApellido)
-                tr.appendChild(tdTelefono)
-                tr.appendChild(tdOpciones)
-                datosBody.appendChild(tr)
-            })
-        }
-        
-        // Pintar tabla inicialmente
-        pintar()
-    </script>
+    projects.forEach((p) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${p.thumbnail}" alt="${p.title}">
+        <div class="card-content">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <div class="buttons">
+            <button class="btn view-btn">Ver</button>
+            <a href="${p.url}" target="_blank" class="btn">Abrir</a>
+          </div>
+        </div>
+      `;
+      card.querySelector('.view-btn').addEventListener('click', () => {
+        modal.classList.add('active');
+        modalFrame.src = p.url;
+        modalTitle.textContent = p.title;
+      });
+      container.appendChild(card);
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modalFrame.src = '';
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        modalFrame.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
+
